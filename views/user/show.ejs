@@ -4,24 +4,40 @@
         <title>Github Users</title>
     </head>
     <body>
-        <h3><%= user.name %></h3>
-        <p><a href="/users/delete/<%= user.username %>">Delete</a></p>
-        <form action="/users/<%= user.username %>" method="POST">
+        <h3><%= user.title %></h3>
+        <p><a href="/users/delete/<%= user.title %>">Delete</a></p>
+        <form action="/users/<%= user.title %>" method="POST">
 
             <p>
-            <label>Full Name</label>
-            <input type="text" id="name" name="name" value="<%= user.name %>" />
+            <label>Title</label>
+            <input type="text" id="title" name="title" value="<%= user.title %>" />
             </p>
 
             <p>
-            <label>Username</label>
-            <input type="text" id="username" name="username" value="<%= user.username %>" />
+            <label>Author</label>
+            <input type="text" id="author" name="author" value="<%= user.author %>" />
             </p>
 
             <p>
-            <label>Github Link</label>
-            <input type="text" id="link" name="link" value="<%= user.link %>" />
+            <label>Category</label>
+            <input type="text" id="category" name="category" value="<%= user.category %>" />
             </p>
+
+            <p>
+            <label>Content</label>
+            <input type="text" id="content" name="content" value="<%= user.content %>" />
+            </p>
+
+            <p>
+            <label>Thumbnail Images</label>
+            <input type="text" id="thumbnailImage" name="thumbnailImage" value="<%= user.thumbnailImage %>" />
+            </p>
+
+            <p>
+            <label>Created Date</label>
+            <input type="text" id="createdDate" name="createdDate" value="<%= user.createdDate %>" />
+            </p>
+
 
             <button>Update</button>
 

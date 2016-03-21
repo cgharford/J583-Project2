@@ -39,7 +39,7 @@ body {
 
 }
 
-#create-button {
+.create-button {
     float: right;
     color: white;
     background-color: #989FA6;
@@ -48,9 +48,23 @@ body {
 
 .posts {
     background-color: white;
-    margin: 1em;
-    /*width: 343px;*/
+    margin-right: 1em;
     border-radius: .5em;
+    padding: 2em;
+}
+
+.post-title:link, .post-title:visited, .post-title:hover, .post-title:active {
+  text-decoration: none;
+  color: #719FB1;
+  font-size: 25px;
+}
+
+.post-title:hover {
+    color: #667985;
+}
+
+.post-date {
+    color: #35414D;
 }
 
 .white-popup-block {
@@ -64,15 +78,19 @@ body {
 
 #buttons {
     white-space:normal;
-    /*border:solid 1px;*/
-    position: absolute;
 }
 #buttons div {
     cursor:default;
-    padding:10px;
+    /*padding:10px;*/
     white-space: nowrap;
     display: block;
     float: left;
     background-color: white;
-    margin: 5px;
+    /*margin: 5px;*/
+}
+
+#footer {
+    background-color: #667985;
+    height: 30px;
+    margin: 0px -20px 0px -20px;
 }

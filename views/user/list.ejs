@@ -19,7 +19,7 @@
         <div class="col-lg-10 col-lg-offset-1">
             <div id="intro-content">
                 <span id="intro">Create, view, and edit your posts. </span>
-                <a href="#test-form" class="btn btn-secondary btn-lg active popup-with-form" id="create-button" role="button">Create</a>
+                <a href="#test-form" class="btn btn-secondary btn-lg active popup-with-form create-button" role="button">Create</a>
             </div>
 
             <nav id="buttons">
@@ -27,8 +27,8 @@
             <% if (users.length) { %>
                 <% for (var i in users) { %>
                 <div class="posts" >
-                    <a href="/users/<%= users[i].username %>" class=""><%= users[i].name %></a><br>
-                    <span>time</span>
+                    <a href="/users/<%= users[i].title %>" class="post-title"><%= users[i].title %></a><br>
+                    <span class="post-date">time</span>
                 </div>
                 <% } %>
             <% } else { %>
@@ -43,21 +43,37 @@
                 <h3>New Post</h3>
 
                 <p>
-                <label>Full Name</label>
-                <input type="text" id="name" name="name" value="" />
+                <label>Title</label>
+                <input type="text" id="title" name="title" value="" />
                 </p>
 
                 <p>
-                <label>Username</label>
-                <input type="text" id="username" name="username" value="" />
+                <label>Author</label>
+                <input type="text" id="author" name="author" value="" />
                 </p>
 
                 <p>
-                <label>Github Link</label>
-                <input type="text" id="link" name="link" value="" />
+                <label>Category</label>
+                <input type="text" id="category" name="category" value="" />
                 </p>
 
-                <button>Create</button>
+                <p>
+                <label>Content</label>
+                <input type="text" id="content" name="content" value="" />
+                </p>
+
+                <p>
+                <label>Thumbnail Images</label>
+                <input type="text" id="thumbnailImage" name="thumbnailImage" value="" />
+                </p>
+
+                <p>
+                <label>Created Date</label>
+                <input type="text" id="createdDate" name="createdDate" value="" />
+                </p>
+
+                <!-- <a href="#test-form" class="btn btn-secondary btn-lg active popup-with-form" id="create-button" role="button">Create</a> -->
+                <button class="btn btn-secondary btn-lg active popup-with-form create-button">Create</button>
             </form>
 
             <script>
@@ -82,5 +98,7 @@
                 });
             </script>
         </div>
+
+        <!-- <div id="footer"></div> -->
     </body>
 </html>

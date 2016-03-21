@@ -11,7 +11,7 @@ exports.list = function(req, res) {
 exports.show = function(req, res) {
     var collection = db.get().collection('users');
 
-    collection.find({"username": req.params.id}).limit(1).toArray(function(err, results) {
+    collection.find({"title": req.params.id}).limit(1).toArray(function(err, results) {
         res.render('user/show', {user: results[0]});
     });
 };
@@ -24,9 +24,12 @@ exports.update = function(req, res) {
         {username: req.params.id},
         {
             $set: {
-                username: req.body.username,
-                name: req.body.name,
-                link: req.body.link
+                title: req.body.title,
+                author: req.body.author,
+                category: req.body.category,
+                content: req.body.content,
+                thumbnailImage: req.body.thumbnailImage,
+                createdDate: req.body.createdDate
             }
         }
     );
@@ -43,9 +46,12 @@ exports.create = function(req, res) {
 
     //note about xss and sanitization
     collection.insert({
-        username: req.body.username,
-        name: req.body.name,
-        link: req.body.link
+        title: req.body.title,
+        author: req.body.author,
+        category: req.body.category,
+        content: req.body.content,
+        thumbnailImage: req.body.thumbnailImage,
+        createdDate: req.body.createdDate
     });
 
     res.redirect('/users');
