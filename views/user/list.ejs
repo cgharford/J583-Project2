@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Space.</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/magnific-popup.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.magnific-popup.min.js"></script>
+    </head>
+    <body>
+        <div class="row" id="header">
+            <img src="/img/logo.jpg" id="logo"></img>
+            <div id="byline">Where your thoughts have room to breathe.  </div>
+        </div>
+        <div class="row" id="header-strip"></div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div id="intro-content">
+                <span id="intro">Create, view, and edit your posts. </span>
+                <a href="#test-form" class="btn btn-secondary btn-lg active popup-with-form" id="create-button" role="button">Create</a>
+            </div>
+
+            <nav id="buttons">
+
+            <% if (users.length) { %>
+                <% for (var i in users) { %>
+                <div class="posts" >
+                    <a href="/users/<%= users[i].username %>" class=""><%= users[i].name %></a><br>
+                    <span>time</span>
+                </div>
+                <% } %>
+            <% } else { %>
+            <p>Sorry, there are no posts yet.</p>
+            <% } %>
+
+            </nav>
+
+            <!-- link that opens popup -->
+
+            <form action="/users" method="POST" id="test-form" class="mfp-hide white-popup-block">
+                <h3>New Post</h3>
+
+                <p>
+                <label>Full Name</label>
+                <input type="text" id="name" name="name" value="" />
+                </p>
+
+                <p>
+                <label>Username</label>
+                <input type="text" id="username" name="username" value="" />
+                </p>
+
+                <p>
+                <label>Github Link</label>
+                <input type="text" id="link" name="link" value="" />
+                </p>
+
+                <button>Create</button>
+            </form>
+
+            <script>
+                $(document).ready(function() {
+                    $('.popup-with-form').magnificPopup({
+                        type: 'inline',
+                        preloader: false,
+                        focus: '#name',
+
+                        // When elemened is focused, some mobile browsers in some cases zoom in
+                        // It looks not nice, so we disable it:
+                        callbacks: {
+                            beforeOpen: function() {
+                                if($(window).width() < 700) {
+                                    this.st.focus = false;
+                                } else {
+                                    this.st.focus = '#name';
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </body>
+</html>
