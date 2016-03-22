@@ -40,18 +40,38 @@ body {
 }
 
 .create-button {
-    float: right;
     color: white;
     background-color: #989FA6;
     padding: .3em .5em;
 }
 
+#create-button-list {
+    float: right;
+}
+
+#create-button-form {
+    margin-top: 1em;
+}
+
+.update-icons {
+    float: right;
+    padding: 0em .25em;
+    color: #667985;
+}
+
+.edit-icon {
+    margin-top: 1px;
+}
+
 .posts {
+    -webkit-box-shadow:inset 10px 10px 50px 1px #E0E0E0;
+    box-shadow:inset 10px 10px 50px 1px #E0E0E0;
     background-color: white;
     margin-right: 1em;
     border-radius: .5em;
     padding: 2em;
 }
+
 
 .post-title:link, .post-title:visited, .post-title:hover, .post-title:active {
   text-decoration: none;
@@ -76,17 +96,113 @@ body {
     position: relative
 }
 
-#buttons {
+.form-title {
+    color: #719FB1;
+    font-size: 25px;
+    padding-bottom: 1em;
+}
+
+.form-label {
+    color: #56626C;
+}
+
+.form-input {
+    width: 100%;
+    border-radius: .25em;
+    border: 1px solid #ccc;
+    padding: .25em;
+}
+
+.input-box {
+    padding-bottom: .75em;
+}
+
+#post-container {
     white-space:normal;
 }
-#buttons div {
+
+#post-container div {
     cursor:default;
-    /*padding:10px;*/
     white-space: nowrap;
     display: block;
     float: left;
     background-color: white;
-    /*margin: 5px;*/
+}
+
+#post-container nav {
+    cursor:default;
+    white-space: nowrap;
+    display: block;
+    float: left;
+    background-color: white;
+}
+
+#single-post-content {
+    -webkit-box-shadow:inset 10px 10px 50px 1px #E0E0E0;
+    box-shadow:inset 10px 10px 50px 1px #E0E0E0;
+    border-radius: .5em;
+    margin: 0em;
+    padding: 3em;
+    cursor:default;
+    white-space: nowrap;
+    display: block;
+    background-color: white;
+    white-space:normal;
+}
+
+#post-header {
+    padding: 0em 0em 1em 0em;
+}
+
+#post-title {
+    font-size: 35px;
+    color: #667985;
+}
+
+#post-created-date {
+    float: right;
+    color: #667985;
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+#thumbnail {
+    width: 55px;
+    height: 55px;
+    border-radius: 5em;
+}
+
+#post-title {
+    font-size: 30px;
+    color: #667985;
+}
+
+#post-author-info {
+    padding: .5em 0em 1em 0em;
+}
+
+#post-byline {
+    vertical-align: sub;
+    padding: 1em 4em;
+    line-height: 0px;
+    font-size: 18px;
+}
+
+#post-author {
+    font-weight: bold;
+    color: #719FB1;
+}
+
+#post-category {
+    font-weight: bold;
+    padding: 0em 5em;
+    font-family: georgia;
+}
+
+#post-content {
+    font-size: 15px;
+    line-height: 160%;
+    padding: 1em 0em;
 }
 
 #footer {

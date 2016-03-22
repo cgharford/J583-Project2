@@ -1,6 +1,117 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Space.</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/magnific-popup.css" rel="stylesheet">
+        <link href="/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.magnific-popup.min.js"></script>
+    </head>
+    <body>
+        <div class="row" id="header">
+            <img src="/img/logo.jpg" id="logo"></img>
+            <div id="byline">Where your thoughts have room to breathe.</div>
+        </div>
+        <div class="row" id="header-strip"></div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div id="intro-content">
+                <span id="intro">Click on the icons to edit or remove your post.</span>
+
+                <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                <a href="/users/delete/<%= user.title %>" role="button"><i class="fa fa-trash fa-2x update-icons"></i></a>
+                <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+            </div>
+
+            <div class="row" id="single-post-content">
+                <div id="post-header" >
+                    <span id="post-title"><%= user.title %></span>
+                    <span id="post-created-date"><%= user.createdDate %></span>
+                </div>
+                <div id="post-author-info">
+                    <img style="float: left;" src="/img/me.jpg" id="thumbnail"></img>
+                    <div id="post-byline">Written by <span id="post-author"><%= user.author %></span></div>
+                    <div id="post-category"><%= user.category %></div>
+                </div>
+                <div id="post-content">
+                    <%= user.content %>
+                </div>
+
+
+            </div>
+
+            <form action="/users/<%= user.title %>" method="POST" id="test-form" class="mfp-hide white-popup-block">
+                <div class="form-title">Update Post</div>
+
+                <div>
+                    <label class="form-label">Title</label>
+                    <div class="input-box"><input type="text" id="title" name="title" value="<%= user.title %>" class="form-input"/></div>
+                </div>
+
+                <div>
+                    <label>Author</label>
+                    <div class="input-box"><input type="text" id="author" name="author" value="<%= user.author %>" class="form-input"/></div>
+                </div>
+
+                <div>
+                    <label>Category</label>
+                    <div class="input-box"><input type="text" id="category" name="category" value="<%= user.category %>" class="form-input"/></div>
+                </div>
+
+                <div>
+                    <label>Content</label>
+                    <div class="input-box"><textarea id="content" name="content" value="<%= user.content %>" class="form-input"/><%= user.content %></textarea></div>
+                </div>
+
+                <div>
+                    <label>Thumbnail Images</label>
+                    <div class="input-box"><input type="text" id="thumbnailImage" name="thumbnailImage" value="<%= user.thumbnailImage %>" class="form-input"/></div>
+                </div>
+
+                <div>
+                    <label>Created Date</label>
+                    <div class="input-box"><input type="datetime-local" id="createdDate" name="createdDate" value="<%= user.createdDate %>" class="form-input"/></div>
+                </div>
+
+                <button class="btn btn-secondary btn-lg active create-button" id="create-button-form">Update Post</button>
+            </form>
+
+            <script>
+                $(document).ready(function() {
+                    $('.popup-with-form').magnificPopup({
+                        type: 'inline',
+                        preloader: false,
+                        focus: '#title'
+
+                        // When elemened is focused, some mobile browsers in some cases zoom in
+                        // It looks not nice, so we disable it:
+                        // callbacks: {
+                        //     beforeOpen: function() {
+                        //         if($(window).width() < 700) {
+                        //             this.st.focus = false;
+                        //         } else {
+                        //             this.st.focus = '#name';
+                        //         }
+                        //     }
+                        // }
+                    });
+                });
+            </script>
+        </div>
+
+        <!-- <div id="footer"></div> -->
+    </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
         <title>Github Users</title>
     </head>
     <body>
@@ -38,9 +149,9 @@
             <input type="text" id="createdDate" name="createdDate" value="<%= user.createdDate %>" />
             </p>
 
-
+            asdasd
             <button>Update</button>
 
         </form>
     </body>
-</html>
+</html> -->
