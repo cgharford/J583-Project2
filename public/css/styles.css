@@ -23,7 +23,7 @@ body {
 
 #byline {
     color: #989FA6;
-    font-family: "verdana";
+    font-family: monospace;;
 }
 
 #logo {
@@ -37,7 +37,7 @@ body {
     padding: 2em 0em;
 }
 
-#intro {
+.intro {
     text-align: left;
     font-size: 20px;
     font-family: "verdana";
@@ -102,6 +102,8 @@ body {
   color: #719FB1;
   font-size: 25px;
   line-height: 200%;
+  font-family: monospace;
+  font-weight: bold;
 }
 
 .post-title:hover {
@@ -195,6 +197,8 @@ textarea:focus {
 #post-title {
     font-size: 35px;
     color: #667985;
+    font-family: monospace;
+    font-weight: bold;
 }
 
 #post-created-date {
@@ -205,6 +209,7 @@ textarea:focus {
 }
 
 #thumbnail {
+    float: left;
     width: 55px;
     height: 55px;
     border-radius: 5em;
@@ -234,7 +239,7 @@ textarea:focus {
 #post-category {
     font-weight: bold;
     padding: 0em 5em;
-    font-family: georgia;
+    font-family: monospace;
 }
 
 #post-content {
@@ -245,16 +250,16 @@ textarea:focus {
 
 #footer {
     background-color: #667985;
+    background: #ffab62;
+    width: 100%;
     height: 30px;
-    /*margin: 0px -20px 0px -20px;*/
     position: absolute;
-    /*width:100%;
-	height:100px;*/
-	position:absolute;
-	bottom:0;
-	left:0;
+    bottom: 0;
+    left: 0;
+    margin: 0em -100px 0em -100px;
 }
 
+/* Styles for responsiveness */
 @media screen and (max-width: 900px) {
     #logo {
         max-width: 30%;
@@ -262,12 +267,15 @@ textarea:focus {
     }
 }
 
-/* Styles for mobile screen size */
-@media screen and (max-width: 770px) {
-    #intro {
+@media screen and (max-width: 768px) {
+    #logo {
+        max-width: 45%;
+        max-height: 45%;
+    }
+
+    .intro {
         text-align: center;
-        padding: 0em 0em 1.5em 0em;
-        position: relative;
+        padding: 0em 0em .5em 0em;
         font-size: 18px;
     }
 
@@ -276,26 +284,71 @@ textarea:focus {
         padding: 0em .25em;
     }
 
-    #logo {
-        max-width: 45%;
-        max-height: 45%;
+    #icons-mobile {
+        padding-top: 1em;
+        margin-left: 40%;
+    }
+    #icons-mobile-home {
+        padding-top: 1em;
+        margin-left: 43%;
     }
 
+    #post-created-date {
+        float: none;
+        display: block;
+        text-align: left;
+        color: black;
+    }
+
+    #single-post-content {
+        padding: 1.5em;
+    }
+}
+
+@media screen and (max-width: 600px) {
     #icons-mobile {
-        /*position: absolute;
-        top: 65%;
-        left: 45%;*/
-        padding-top: 1em;
-        margin-left: 40%
+        margin-left: 37%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #icons-mobile {
+        margin-left: 35%;
+    }
+    #icons-mobile-home {
+        margin-left: 40%;
+    }
+    #thumbnail {
+        float: none;
+        margin-left: 43%;
+        width: 70px;
+        height: 70px;
+    }
+    #post-byline {
+        padding: .5em 0em;
+        line-height: 100%;
+    }
+    #post-created-date {
+        text-align: center;;
+    }
+
+    #post-category {
+        padding: 1em 0em;
+        line-height: 10%;
     }
 }
 
 @media screen and (max-width: 400px) {
     #icons-mobile {
-        /*position: absolute;*/
-        /*top: 65%;
-        left: 38%;*/
-        margin-left: 40%
-        padding-top: 1em;
+        margin-left: 30%;
+    }
+    #icons-mobile-home {
+        margin-left: 37.5%;
+    }
+    #thumbnail {
+        float: none;
+        margin-left: 36%;
+        width: 90px;
+        height: 90px;
     }
 }
