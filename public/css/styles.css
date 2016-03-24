@@ -93,7 +93,7 @@ body {
     margin-right: 1em;
     margin-bottom: 1em;
     border-radius: .5em;
-    padding: 2em;
+    padding: 1.5em 2em 2em 2em;
 }
 
 
@@ -101,6 +101,7 @@ body {
   text-decoration: none;
   color: #719FB1;
   font-size: 25px;
+  line-height: 200%;
 }
 
 .post-title:hover {
@@ -109,6 +110,7 @@ body {
 
 .post-date {
     color: #35414D;
+    line-height: 200%;
 }
 
 .white-popup-block {
@@ -251,4 +253,49 @@ textarea:focus {
 	position:absolute;
 	bottom:0;
 	left:0;
+}
+
+@media screen and (max-width: 900px) {
+    #logo {
+        max-width: 30%;
+        max-height: 30%;
+    }
+}
+
+/* Styles for mobile screen size */
+@media screen and (max-width: 770px) {
+    #intro {
+        text-align: center;
+        padding: 0em 0em 1.5em 0em;
+        position: relative;
+        font-size: 18px;
+    }
+
+    .update-icons {
+        float: none;
+        padding: 0em .25em;
+    }
+
+    #logo {
+        max-width: 45%;
+        max-height: 45%;
+    }
+
+    #icons-mobile {
+        /*position: absolute;
+        top: 65%;
+        left: 45%;*/
+        padding-top: 1em;
+        margin-left: 40%
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #icons-mobile {
+        /*position: absolute;*/
+        /*top: 65%;
+        left: 38%;*/
+        margin-left: 40%
+        padding-top: 1em;
+    }
 }

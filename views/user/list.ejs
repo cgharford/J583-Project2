@@ -20,12 +20,22 @@
             </div>
             <div class="row" id="header-strip"></div>
             <!-- Main content -->
-            <div class="col-lg-10 col-lg-offset-1">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div id="intro-content">
-                    <span id="intro">Create, view, and edit your posts. </span>
-                    <!-- Icons for creating new posts and navigating to home -->
-                    <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
-                    <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                    <div class="hidden-xs">
+                        <span id="intro">Create, view, and edit your posts. </span>
+                        <!-- Icons for creating new posts and navigating to home -->
+                        <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                        <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                    </div>
+                    <div class="visible-xs">
+                        <div id="intro">Create, view, and edit your posts. </div>
+                        <!-- Icons for creating new posts and navigating to home -->
+                        <div id="icons-mobile">
+                            <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                            <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Layout of all the posts -->

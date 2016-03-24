@@ -17,13 +17,23 @@
             <div id="byline">Where your thoughts have room to breathe.</div>
         </div>
         <div class="row" id="header-strip"></div>
-        <div class="col-lg-10 col-lg-offset-1">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
             <div id="intro-content">
-                <span id="intro">Click on the icons to edit or remove your post.</span>
+                <div class="hidden-xs">
+                    <span id="intro">Click on the icons to edit or remove your post.</span>
 
-                <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
-                <a href="/users/delete/<%= user.title %>" role="button"><i class="fa fa-trash fa-2x update-icons"></i></a>
-                <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                    <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                    <a href="/users/delete/<%= user.title %>" role="button"><i class="fa fa-trash fa-2x update-icons"></i></a>
+                    <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                </div>
+                <div class="visible-xs">
+                    <span id="intro">Click on the icons to edit or remove your post.</span>
+                    <div id="icons-mobile">
+                        <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                        <a href="/users/delete/<%= user.title %>" role="button"><i class="fa fa-trash fa-2x update-icons"></i></a>
+                        <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                    </div>
+                </div>
             </div>
 
             <div class="row" id="single-post-content">
@@ -32,7 +42,7 @@
                     <span id="post-created-date"><%= user.createdDate %></span>
                 </div>
                 <div id="post-author-info">
-                    <img style="float: left;" src="<%= user.category %>" id="thumbnail"></img>
+                    <img style="float: left;" src="<%= user.thumbnailImage %>" id="thumbnail"></img>
                     <div id="post-byline">Written by <span id="post-author"><%= user.author %></span></div>
                     <div id="post-category"><%= user.category %></div>
                 </div>
