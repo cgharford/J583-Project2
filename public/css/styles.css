@@ -1,10 +1,11 @@
-body {
-    background-color: #CBCED3;
+html {
+  position: relative;
+  min-height: 100%;
 }
-
-#wrapper {
-    min-height:100%;
-    position: relative;
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #CBCED3;
 }
 
 #header {
@@ -12,13 +13,16 @@ body {
     text-align: center;
     max-width: 150%;
     padding: 3em 0em;
-    margin: -20px -20px 0px -20px;
 }
 
 #header-strip {
     background-color: #667985;
     height: 15px;
-    margin: 0px -20px 0px -20px;
+}
+
+.content-container {
+    margin-left: 8em;
+    margin-right: 8em;
 }
 
 #byline {
@@ -248,15 +252,12 @@ textarea:focus {
     padding: 1em 0em;
 }
 
-#footer {
-    background-color: #667985;
-    background: #ffab62;
-    width: 100%;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0em -100px 0em -100px;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #667985;
 }
 
 /* Styles for responsiveness */
@@ -271,6 +272,11 @@ textarea:focus {
     #logo {
         max-width: 45%;
         max-height: 45%;
+    }
+
+    .content-container {
+        margin-left: 2em;
+        margin-right: 2em;
     }
 
     .intro {
@@ -312,6 +318,11 @@ textarea:focus {
 }
 
 @media screen and (max-width: 500px) {
+    .content-container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
     #icons-mobile {
         margin-left: 35%;
     }
