@@ -37,7 +37,7 @@ exports.update = function(req, res) {
         }
     );
 
-    res.redirect('/users');
+    res.redirect('/users/' + req.body.title);
 };
 
 exports.form = function(req, res) {

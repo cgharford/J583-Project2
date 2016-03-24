@@ -3,7 +3,6 @@ html {
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 60px;
   background-color: #CBCED3;
 }
@@ -258,6 +257,32 @@ textarea:focus {
   width: 100%;
   height: 40px;
   background-color: #667985;
+  text-align: center;
+  color: white;
+  padding-top: .5em;
+}
+
+.credits {
+    color: #CBCED3;
+}
+
+.credits:link, .credits:visited, .credits:hover, .credits:active {
+  text-decoration: none;
+  color: #CBCED3;
+  font-size: 25px;
+  line-height: 200%;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.credits:hover {
+    color: #719FB1;
+}
+
+.footer-icon {
+    color: #CBCED3;
+    padding: 0em .25em;
 }
 
 /* Styles for responsiveness */
