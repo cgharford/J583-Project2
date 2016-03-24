@@ -1,32 +1,24 @@
-# Node/Mongo/Express Example App
+# Node/Mongo/Express CMS Project
 
-To install:
+Follow these steps to install and run this project.
 
-Clone this repository into your vagrant sites folder
+Clone this repository into your vagrant sites folder using the following
+command:
 
-```
-git clone https://github.com/asethwright/mongodb-app-example.git
-```
+    $ git clone https://github.com/cgharford/?
 
-Install dependencies on your computer (NOT THE VAGRANT MACHINE)
+Install dependencies on your computer (NOT THE VAGRANT MACHINE):
 
-```
-cd /path/to/sites/mongodb-app-example
-npm install
-```
+    $ cd /path/to/sites/mongodb-app-example
+    $ npm install
 
-Log into your vagrant machine
+Log into your vagrant machine:
 
-```
-vagrant ssh
-```
+    $ vagrant ssh
 
-Move to the shared folder and start the server
+Move to the shared folder and start the server using these commands:
 
-```
-cd /vagrant/mongodb-app-example
-node index.js
-```
+    $ cd /vagrant/project-2
+    $ node index.js
 
-Navigate to http://localhost:8080/users/
-
+Navigate to http://localhost:3000/users/. Enjoy!

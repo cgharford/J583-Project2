@@ -1,3 +1,4 @@
+// External requirements and dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -13,16 +14,18 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
-app.get('/users', user.list); //list page
+// List page for posts
+app.get('/users', user.list);
+// Create a new post
+app.post('/users', user.create);
+// Edit individual post
+app.post('/users/:id', user.update);
+// View individual post
+app.get('/users/:id', user.show);
+// Delete a post
+app.get('/users/delete/:id', user.remove);
 
-app.get('/user/new', user.form); //new action
-app.post('/users', user.create); //new action
-
-app.post('/users/:id', user.update); //edit action
-app.get('/users/:id', user.show); //edit form
-
-app.get('/users/delete/:id', user.remove); //delete action
-
+// Connect to mongo db and listen on port 3000
 db.connect('mongodb://localhost:27017/test', function(err) {
     console.log("MongoDB connected...");
     app.listen(3000, function() {

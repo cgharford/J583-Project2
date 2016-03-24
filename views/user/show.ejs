@@ -32,15 +32,13 @@
                     <span id="post-created-date"><%= user.createdDate %></span>
                 </div>
                 <div id="post-author-info">
-                    <img style="float: left;" src="/img/me.jpg" id="thumbnail"></img>
+                    <img style="float: left;" src="<%= user.category %>" id="thumbnail"></img>
                     <div id="post-byline">Written by <span id="post-author"><%= user.author %></span></div>
                     <div id="post-category"><%= user.category %></div>
                 </div>
                 <div id="post-content">
                     <%= user.content %>
                 </div>
-
-
             </div>
 
             <form action="/users/<%= user.title %>" method="POST" id="test-form" class="mfp-hide white-popup-block">
@@ -71,11 +69,6 @@
                     <div class="input-box"><input type="text" id="thumbnailImage" name="thumbnailImage" value="<%= user.thumbnailImage %>" class="form-input"/></div>
                 </div>
 
-                <div>
-                    <label>Created Date</label>
-                    <div class="input-box"><input type="datetime-local" id="createdDate" name="createdDate" value="<%= user.createdDate %>" class="form-input"/></div>
-                </div>
-
                 <button class="btn btn-secondary btn-lg active create-button" id="create-button-form">Update Post</button>
             </form>
 
@@ -84,74 +77,22 @@
                     $('.popup-with-form').magnificPopup({
                         type: 'inline',
                         preloader: false,
-                        focus: '#title'
+                        focus: '#title',
 
                         // When elemened is focused, some mobile browsers in some cases zoom in
                         // It looks not nice, so we disable it:
-                        // callbacks: {
-                        //     beforeOpen: function() {
-                        //         if($(window).width() < 700) {
-                        //             this.st.focus = false;
-                        //         } else {
-                        //             this.st.focus = '#name';
-                        //         }
-                        //     }
-                        // }
+                        callbacks: {
+                            beforeOpen: function() {
+                                if($(window).width() < 700) {
+                                    this.st.focus = false;
+                                } else {
+                                    this.st.focus = '#title';
+                                }
+                            }
+                        }
                     });
                 });
             </script>
         </div>
-
-        <!-- <div id="footer"></div> -->
     </body>
 </html>
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <title>Github Users</title>
-    </head>
-    <body>
-        <h3><%= user.title %></h3>
-        <p><a href="/users/delete/<%= user.title %>">Delete</a></p>
-        <form action="/users/<%= user.title %>" method="POST">
-
-            <p>
-            <label>Title</label>
-            <input type="text" id="title" name="title" value="<%= user.title %>" />
-            </p>
-
-            <p>
-            <label>Author</label>
-            <input type="text" id="author" name="author" value="<%= user.author %>" />
-            </p>
-
-            <p>
-            <label>Category</label>
-            <input type="text" id="category" name="category" value="<%= user.category %>" />
-            </p>
-
-            <p>
-            <label>Content</label>
-            <input type="text" id="content" name="content" value="<%= user.content %>" />
-            </p>
-
-            <p>
-            <label>Thumbnail Images</label>
-            <input type="text" id="thumbnailImage" name="thumbnailImage" value="<%= user.thumbnailImage %>" />
-            </p>
-
-            <p>
-            <label>Created Date</label>
-            <input type="text" id="createdDate" name="createdDate" value="<%= user.createdDate %>" />
-            </p>
-
-            asdasd
-            <button>Update</button>
-
-        </form>
-    </body>
-</html> -->

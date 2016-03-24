@@ -2,6 +2,11 @@ body {
     background-color: #CBCED3;
 }
 
+#wrapper {
+    min-height:100%;
+    position: relative;
+}
+
 #header {
     background-color: #35414D;
     text-align: center;
@@ -45,6 +50,24 @@ body {
     padding: .3em .5em;
 }
 
+.submission {
+    margin-top: 1em;
+}
+
+#error-alert {
+    color: #970202;
+    vertical-align: middle;
+    padding-left: 1em;
+}
+
+.error-alert {
+
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 #create-button-list {
     float: right;
 }
@@ -68,6 +91,7 @@ body {
     box-shadow:inset 10px 10px 50px 1px #E0E0E0;
     background-color: white;
     margin-right: 1em;
+    margin-bottom: 1em;
     border-radius: .5em;
     padding: 2em;
 }
@@ -113,8 +137,21 @@ body {
     padding: .25em;
 }
 
+/* Custom styles for input box */
 .input-box {
     padding-bottom: .75em;
+}
+
+input:focus {
+    outline: none;
+    border-color: #719FB1;
+    box-shadow: 0 0 10px #719FB1;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #719FB1;
+    box-shadow: 0 0 10px #719FB1;
 }
 
 #post-container {
@@ -123,7 +160,6 @@ body {
 
 #post-container div {
     cursor:default;
-    white-space: nowrap;
     display: block;
     float: left;
     background-color: white;
@@ -131,7 +167,6 @@ body {
 
 #post-container nav {
     cursor:default;
-    white-space: nowrap;
     display: block;
     float: left;
     background-color: white;
@@ -148,6 +183,7 @@ body {
     display: block;
     background-color: white;
     white-space:normal;
+    margin-bottom: 3em;
 }
 
 #post-header {
@@ -208,5 +244,11 @@ body {
 #footer {
     background-color: #667985;
     height: 30px;
-    margin: 0px -20px 0px -20px;
+    /*margin: 0px -20px 0px -20px;*/
+    position: absolute;
+    /*width:100%;
+	height:100px;*/
+	position:absolute;
+	bottom:0;
+	left:0;
 }

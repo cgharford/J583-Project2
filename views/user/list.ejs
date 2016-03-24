@@ -12,93 +12,75 @@
         <script src="/js/jquery.magnific-popup.min.js"></script>
     </head>
     <body>
-        <div class="row" id="header">
-            <img src="/img/logo.jpg" id="logo"></img>
-            <div id="byline">Where your thoughts have room to breathe.</div>
-        </div>
-        <div class="row" id="header-strip"></div>
-        <div class="col-lg-10 col-lg-offset-1">
-            <div id="intro-content">
-                <span id="intro">Create, view, and edit your posts. </span>
-
-                <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
-                <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+        <div id="wrapper">
+            <!-- Header with logo -->
+            <div class="row" id="header">
+                <img src="/img/logo.jpg" id="logo"></img>
+                <div id="byline">Where your thoughts have room to breathe.</div>
             </div>
+            <div class="row" id="header-strip"></div>
+            <!-- Main content -->
+            <div class="col-lg-10 col-lg-offset-1">
+                <div id="intro-content">
+                    <span id="intro">Create, view, and edit your posts. </span>
+                    <!-- Icons for creating new posts and navigating to home -->
+                    <a href="/users" role="button"><i class="fa fa-home fa-2x update-icons"></i></a>
+                    <a href="#test-form" class="popup-with-form" role="button"><i class="fa fa-pencil-square-o fa-2x update-icons edit-icon"></i></a>
+                </div>
 
-            <nav id="post-container">
-
-                <% if (users.length) { %>
-                    <% for (var i in users) { %>
-                    <div class="posts" >
-                        <a href="/users/<%= users[i].title %>" class="post-title"><%= users[i].title %></a><br>
-                        <span class="post-date"><%= users[i].createdDate %></span>
-                    </div>
+                <!-- Layout of all the posts -->
+                <nav id="post-container">
+                    <% if (users.length) { %>
+                        <% for (var i in users) { %>
+                        <div class="posts" >
+                            <a href="/users/<%= users[i].title %>" class="post-title"><%= users[i].title %></a><br>
+                            <span class="post-date"><%= users[i].createdDate %></span>
+                        </div>
+                        <% } %>
+                    <% } else { %>
+                    <p>Sorry, there are no posts yet.</p>
                     <% } %>
-                <% } else { %>
-                <p>Sorry, there are no posts yet.</p>
-                <% } %>
+                </nav>
 
-            </nav>
+                <!-- Hidden form pops up when the "Create" icon is presses -->
+                <form action="/users" method="POST" id="test-form" class="mfp-hide white-popup-block" name="form">
+                    <div class="form-title">New Post</div>
 
-            <form action="/users" method="POST" id="test-form" class="mfp-hide white-popup-block">
-                <div class="form-title">New Post</div>
+                    <div>
+                        <label class="form-label">Title</label>
+                        <div class="input-box"><input type="text" id="title" name="title" value="" class="form-input"/></div>
+                    </div>
 
-                <div>
-                    <label class="form-label">Title</label>
-                    <div class="input-box"><input type="text" id="title" name="title" value="" class="form-input"/></div>
-                </div>
+                    <div>
+                        <label>Author</label>
+                        <div class="input-box"><input type="text" id="author" name="author" value="" class="form-input"/></div>
+                    </div>
 
-                <div>
-                    <label>Author</label>
-                    <div class="input-box"><input type="text" id="author" name="author" value="" class="form-input"/></div>
-                </div>
+                    <div>
+                        <label>Category</label>
+                        <div class="input-box"><input type="text" id="category" name="category" value="" class="form-input"/></div>
+                    </div>
 
-                <div>
-                    <label>Category</label>
-                    <div class="input-box"><input type="text" id="category" name="category" value="" class="form-input"/></div>
-                </div>
+                    <div>
+                        <label>Content</label>
+                        <div class="input-box"><textarea id="content" name="content" value="" class="form-input"/></textarea></div>
+                    </div>
 
-                <div>
-                    <label>Content</label>
-                    <div class="input-box"><textarea id="content" name="content" value="" class="form-input"/></textarea></div>
-                </div>
+                    <div>
+                        <label>Thumbnail Images</label>
+                        <div class="input-box"><input type="text" id="thumbnailImage" name="thumbnailImage" value="" class="form-input"/></div>
+                    </div>
 
-                <div>
-                    <label>Thumbnail Images</label>
-                    <div class="input-box"><input type="text" id="thumbnailImage" name="thumbnailImage" value="" class="form-input"/></div>
-                </div>
+                    <div class="submission">
+                        <button class="btn btn-secondary btn-lg active create-button">Create Post</button>
+                        <span class="error-alert" id="error-alert">Cannot create posts with empty fields!<span>
+                    </div>
+                </form>
+                <script src="/js/form.js"></script>
+            </div>
+            <div id="footer">
 
-                <div>
-                    <label>Created Date</label>
-                    <div class="input-box"><input type="datetime-local" id="createdDate" name="createdDate" value="" class="form-input"/></div>
-                </div>
-
-                <button class="btn btn-secondary btn-lg active create-button" id="create-button-form">Create Post</button>
-            </form>
-
-            <script>
-                $(document).ready(function() {
-                    $('.popup-with-form').magnificPopup({
-                        type: 'inline',
-                        preloader: false,
-                        focus: '#title'
-
-                        // When elemened is focused, some mobile browsers in some cases zoom in
-                        // It looks not nice, so we disable it:
-                        // callbacks: {
-                        //     beforeOpen: function() {
-                        //         if($(window).width() < 700) {
-                        //             this.st.focus = false;
-                        //         } else {
-                        //             this.st.focus = '#name';
-                        //         }
-                        //     }
-                        // }
-                    });
-                });
-            </script>
+            </div>
         </div>
-
-        <!-- <div id="footer"></div> -->
     </body>
 </html>

@@ -21,9 +21,8 @@ exports.show = function(req, res) {
 exports.update = function(req, res) {
     var collection = db.get().collection('users');
 
-    req.body.createdDate = req.body.createdDate.substr(0, req.body.createdDate.indexOf('T'));
+    var date = getCurrentDate();
 
-    //note about xss and sanitization
     collection.updateOne(
         {title: req.params.id},
         {
@@ -33,7 +32,7 @@ exports.update = function(req, res) {
                 category: req.body.category,
                 content: req.body.content,
                 thumbnailImage: req.body.thumbnailImage,
-                createdDate: req.body.createdDate
+                createdDate: date
             }
         }
     );
@@ -46,18 +45,26 @@ exports.form = function(req, res) {
 }
 
 exports.create = function(req, res) {
+    // $('.error-alert').append("heyyy");
+    // console.log($('#error-alert').css("color"));
+    // var title = $('#title').val();
+    // if (title == null || title == "") {
+    //     // $('#error-alert').removeClass("hidden");
+    //     return;
+    // }
+    console.log("req:" + req.body.title + "!")
+
     var collection = db.get().collection('users');
 
-    req.body.createdDate = req.body.createdDate.substr(0, req.body.createdDate.indexOf('T'));
+    var date = getCurrentDate();
 
-    //note about xss and sanitization
     collection.insert({
         title: req.body.title,
         author: req.body.author,
         category: req.body.category,
         content: req.body.content,
         thumbnailImage: req.body.thumbnailImage,
-        createdDate: req.body.createdDate
+        createdDate: date
     });
 
     res.redirect('/users');
@@ -66,10 +73,25 @@ exports.create = function(req, res) {
 exports.remove = function(req, res) {
     var collection = db.get().collection('users');
 
-    //note about xss and sanitization
     collection.removeOne({
         title: req.params.id
     });
 
     return res.redirect('/users');
 };
+
+getCurrentDate = function(){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+    var today = dd+'/'+mm+'/'+yyyy;
+    return today;
+}
