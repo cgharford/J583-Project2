@@ -41,7 +41,7 @@
             <!-- Main post display -->
             <div class="row" id="single-post-content">
                 <div id="post-header" >
-                    <span id="post-title"><%= user.title %></span>
+                    <span id="post-title"><%= user.titleDecoded %></span>
 
                     <span id="post-created-date"><%= user.createdDate %></span>
                 </div>
@@ -60,7 +60,7 @@
 
                 <div>
                     <label class="form-label">Title</label>
-                    <div class="input-box"><input type="text" id="title" name="title" value="<%= user.title %>" class="form-input"/></div>
+                    <div class="input-box"><input type="text" id="title" name="titleDecoded" value="<%= user.titleDecoded %>" class="form-input"/></div>
                 </div>
 
                 <div>

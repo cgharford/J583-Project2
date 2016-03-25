@@ -41,7 +41,7 @@
                 <% if (users.length) { %>
                     <% for (var i in users) { %>
                     <div class="posts" >
-                        <a href="/users/<%= users[i].title %>" class="post-title"><%= users[i].title %></a><br>
+                        <a href="/users/<%= users[i].title %>" class="post-title"><%= users[i].titleDecoded %></a><br>
                         <span class="post-date"><%= users[i].createdDate %></span>
                     </div>
                     <% } %>

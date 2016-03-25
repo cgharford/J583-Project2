@@ -12,6 +12,7 @@ exports.list = function(req, res) {
 
 exports.show = function(req, res) {
     var collection = db.get().collection('users');
+    req.params.id = encodeURIComponent(req.params.id);
 
     collection.find({"title": req.params.id}).limit(1).toArray(function(err, results) {
         res.render('user/show', {user: results[0]});
@@ -21,23 +22,26 @@ exports.show = function(req, res) {
 exports.update = function(req, res) {
     var collection = db.get().collection('users');
 
+    var titleDecoded = req.body.titleDecoded;
+    var titleEncoded = encodeURIComponent(req.body.titleDecoded);
     var date = getCurrentDate();
 
     collection.updateOne(
-        {title: req.params.id},
+        {titleDecoded: req.params.id},
         {
             $set: {
-                title: req.body.title,
+                title: titleEncoded,
                 author: req.body.author,
                 category: req.body.category,
                 content: req.body.content,
                 thumbnailImage: req.body.thumbnailImage,
-                createdDate: date
+                createdDate: date,
+                titleDecoded: titleDecoded
             }
         }
     );
 
-    res.redirect('/users/' + req.body.title);
+    res.redirect('/users/' + titleEncoded);
 };
 
 exports.form = function(req, res) {
@@ -45,19 +49,19 @@ exports.form = function(req, res) {
 }
 
 exports.create = function(req, res) {
-    console.log("req:" + req.body.title + "!")
-
     var collection = db.get().collection('users');
 
+    var titleEncoded = encodeURIComponent(req.body.title);
     var date = getCurrentDate();
 
     collection.insert({
-        title: req.body.title,
+        title: titleEncoded,
         author: req.body.author,
         category: req.body.category,
         content: req.body.content,
         thumbnailImage: req.body.thumbnailImage,
-        createdDate: date
+        createdDate: date,
+        titleDecoded: req.body.title
     });
 
     res.redirect('/users');
@@ -67,7 +71,7 @@ exports.remove = function(req, res) {
     var collection = db.get().collection('users');
 
     collection.removeOne({
-        title: req.params.id
+        titleDecoded: req.params.id
     });
 
     return res.redirect('/users');
