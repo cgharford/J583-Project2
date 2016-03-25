@@ -96,7 +96,7 @@ body {
     margin-right: 1em;
     margin-bottom: 1em;
     border-radius: .5em;
-    padding: 1.5em 2em 2em 2em;
+    padding: 2em 2em 2em 2em;
 }
 
 
@@ -104,7 +104,6 @@ body {
   text-decoration: none;
   color: #719FB1;
   font-size: 25px;
-  line-height: 200%;
   font-family: monospace;
   font-weight: bold;
 }
@@ -375,6 +374,10 @@ textarea:focus {
 }
 
 @media screen and (max-width: 400px) {
+    #byline {
+        margin: 0em 6em;
+    }
+
     #icons-mobile {
         margin-left: 30%;
     }
@@ -385,6 +388,18 @@ textarea:focus {
         float: none;
         margin-left: 36%;
         width: 90px;
+        height: 90px;
+    }
+
+    .content-container {
+        margin-bottom: 30%;
+    }
+
+    .credits {
+        display: block;
+    }
+
+    .footer {
         height: 90px;
     }
 }
