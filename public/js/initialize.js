@@ -1,3 +1,5 @@
+angular.module('MyApp', []);
+
 $(document).ready(function() {
     $('.error-alert').addClass("hidden");
     $('.popup-with-form').magnificPopup({

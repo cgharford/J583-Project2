@@ -53,6 +53,12 @@ body {
     padding: .3em .5em;
 }
 
+.no-posts-message {
+    color: white;
+    font-family: monospace;
+    text-align: center;
+}
+
 .submission {
     margin-top: 1em;
 }
