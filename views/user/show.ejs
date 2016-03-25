@@ -7,17 +7,20 @@
         <link href="/css/font-awesome.min.css" rel="stylesheet">
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
 
+        <script type="text/javascript" src="/js/angular.min.js"></script>
         <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script src="/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript">
+            angular.module('MyApp', []);
+        </script>
     </head>
-    <body>
-        <div class="row" id="header">
-            <img src="/img/logo.jpg" id="logo"></img>
-            <div id="byline">Where your thoughts have room to breathe.</div>
-        </div>
-        <div class="row" id="header-strip"></div>
+    <body ng-app="MyApp">
+        <!-- Header with logo -->
+        <div ng-include="'/header.html'"></div>
+        <!-- Main content -->
         <div class="row content-container">
+            <!-- Instructions and CRUD icons -->
             <div id="intro-content">
                 <div class="hidden-xs">
                     <span class="intro">Click on the icons to edit or remove your post.</span>
@@ -35,7 +38,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Main post display -->
             <div class="row" id="single-post-content">
                 <div id="post-header" >
                     <span id="post-title"><%= user.title %></span>
@@ -51,7 +54,7 @@
                     <%= user.content %>
                 </div>
             </div>
-
+            <!-- Hidden form pops up when the "Update" icon is presses -->
             <form action="/users/<%= user.title %>" method="POST" id="test-form" class="mfp-hide white-popup-block">
                 <div class="form-title">Update Post</div>
 
@@ -84,10 +87,7 @@
             </form>
             <script src="/js/form.js"></script>
         </div>
-        <div class="footer">
-            <a class="credits" href="https://github.com/cgharford/J583-Project2">Product repository</a>
-            <i class="fa fa-cloud fa-lg footer-icon"></i>
-            <a class="credits" href="https://dribbble.com/shots/1462636-Space">Logo source credit</a>
-        </div>
+        <!-- Footer with product info and logo source credit -->
+        <div ng-include="'/footer.html'"></div>
     </body>
 </html>

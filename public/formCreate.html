@@ -1,0 +1,32 @@
+<form action="/users" method="POST" id="test-form" class="mfp-hide white-popup-block" name="form">
+    <div class="form-title">New Post</div>
+
+    <div>
+        <label class="form-label">Title</label>
+        <div class="input-box"><input type="text" id="title" name="title" value="" class="form-input"/></div>
+    </div>
+
+    <div>
+        <label>Author</label>
+        <div class="input-box"><input type="text" id="author" name="author" value="" class="form-input"/></div>
+    </div>
+
+    <div>
+        <label>Category</label>
+        <div class="input-box"><input type="text" id="category" name="category" value="" class="form-input"/></div>
+    </div>
+
+    <div>
+        <label>Content</label>
+        <div class="input-box"><textarea id="content" name="content" value="" class="form-input"/></textarea></div>
+    </div>
+
+    <div>
+        <label>Thumbnail Images</label>
+        <div class="input-box"><input type="text" id="thumbnailImage" name="thumbnailImage" value="" class="form-input"/></div>
+    </div>
+    <div class="submission">
+        <button class="btn btn-secondary btn-lg active create-button">Create Post</button>
+        <span class="error-alert" id="error-alert">Cannot create posts with empty fields!</span>
+    </div>
+</form>

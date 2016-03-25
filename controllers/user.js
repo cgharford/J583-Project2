@@ -45,13 +45,6 @@ exports.form = function(req, res) {
 }
 
 exports.create = function(req, res) {
-    // $('.error-alert').append("heyyy");
-    // console.log($('#error-alert').css("color"));
-    // var title = $('#title').val();
-    // if (title == null || title == "") {
-    //     // $('#error-alert').removeClass("hidden");
-    //     return;
-    // }
     console.log("req:" + req.body.title + "!")
 
     var collection = db.get().collection('users');
