@@ -136,6 +136,8 @@ body {
     color: #719FB1;
     font-size: 25px;
     padding-bottom: 1em;
+    font-family: monospace;
+    font-weight: bold;
 }
 
 .form-label {
@@ -164,6 +166,10 @@ textarea:focus {
     outline: none;
     border-color: #719FB1;
     box-shadow: 0 0 10px #719FB1;
+}
+
+#content {
+    height: 80px;
 }
 
 #post-container {
